@@ -18,12 +18,14 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/user": [
-        "libs/user/src"
-      ],
-      "@app/user/*": [
-        "libs/user/src/*"
-      ]
+      "@app/user": ["libs/user/src"],
+      "@app/user/*": ["libs/user/src/*"],
+      "@app/database": ["libs/database/src"],
+      "@app/database/*": ["libs/database/src/*"],
+      "@app/shared": ["libs/shared/src"],
+      "@app/shared/*": ["libs/shared/src/*"],
+      "@app/logger": ["libs/logger/src"],
+      "@app/logger/*": ["libs/logger/src/*"]
     }
   }
 }

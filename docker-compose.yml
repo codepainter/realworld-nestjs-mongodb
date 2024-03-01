@@ -1,0 +1,29 @@
+services:
+  api-service:
+    image: realworld-nestjs-mongodb/api-service:dev
+    container_name: api-service
+    build:
+      context: .
+      dockerfile: apps/api-service/Dockerfile
+    env_file:
+      - apps/api-service/.env
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+      - MONGO_DATABASE_URI=mongodb://mongodb:27017/realworld-nestjs-mongodb
+    ports:
+      # Exposed:container
+      - "3000:3000"
+
+  mongodb:
+    image: arm64v8/mongo:6.0.5-jammy
+    platform: linux/arm64/v8
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongodb_data:/data/db"
+    environment:
+      - MONGO_INITDB_DATABASE=realworld-nestjs-mongodb
+
+volumes:
+  mongodb_data:
