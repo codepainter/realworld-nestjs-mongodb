@@ -14,6 +14,8 @@ services:
     ports:
       # Exposed:container
       - "3000:3000"
+    depends_on:
+      - mongodb
 
   mongodb:
     image: arm64v8/mongo:6.0.5-jammy
