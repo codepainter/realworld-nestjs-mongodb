@@ -2,7 +2,7 @@ import { Prop, Schema } from '@nestjs/mongoose';
 
 @Schema()
 export class BaseSchema {
-  @Prop({ index: true })
+  @Prop({ index: true, unique: true })
   id: string;
 
   @Prop({

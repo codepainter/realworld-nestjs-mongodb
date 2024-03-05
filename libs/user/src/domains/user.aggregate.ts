@@ -37,9 +37,9 @@ export class UserAggregate extends AggregateRoot implements User {
   private email: string;
   private username: string;
   private password: string;
-  private bio: string;
-  private image: string;
-  private token: string;
+  private bio: string = '';
+  private image: string = '';
+  private token: string = '';
 
   constructor(props: UserProps) {
     super();

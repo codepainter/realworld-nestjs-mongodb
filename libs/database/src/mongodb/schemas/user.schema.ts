@@ -10,13 +10,13 @@ export type UserDocument = HydratedDocument<User>;
   collection: 'users',
 })
 export class User extends BaseSchema {
-  @Prop({ unique: true })
+  @Prop({ unique: true, index: true })
   email: string;
 
   @Prop()
   password: string;
 
-  @Prop()
+  @Prop({ unique: true, index: true })
   username: string;
 }
 

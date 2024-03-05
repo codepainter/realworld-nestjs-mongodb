@@ -35,8 +35,14 @@ export class CreateUserCommandHandler extends CommandHandlerBase<
     const newUser = this.factory.create(command.props);
     await this.repository.create(newUser.props());
 
-    const userVM = new UserVM(newUser.props());
-
-    return new CreateUserResult(userVM);
+    return new CreateUserResult(
+      new UserVM({
+        email: newUser.props().email,
+        username: newUser.props().username,
+        bio: newUser.props().bio,
+        image: newUser.props().image,
+        token: newUser.props().token,
+      }),
+    );
   }
 }
